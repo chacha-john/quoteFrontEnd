@@ -1,7 +1,46 @@
-<form [formGroup]="quoteData"(ngSubmit)="saveQuote()">
-    <input type="text" formControlName="quoteOwner" placeholder="Owner's Name">
-    <input type="text" formControlName="quoteMessage" placeholder="Quote Message">
-    <input type="text" formControlName="quoteOwnerDescription" placeholder="Owner's Description">
-    <button type="submit">Submit</button>
+<div class="container mt-3">
+    <form [formGroup]="quoteData" (ngSubmit)="saveQuote()" class="shadow p-5 col-md-6 offset-md-3">
+        <div class="alert" *ngIf="quoteSuccess" [@fadeIn]>
+            {{message}}
+        </div>
+        <div class="form-group">
+            <label for="">Owner</label>
+            <input type="text" formControlName="quoteOwner" placeholder="Owner's Name" class="form-control" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="">Message</label>
+            <input type="text" formControlName="quoteMessage" placeholder="Quote Message" class="form-control" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="">Description</label>
+            <input type="text" formControlName="quoteOwnerDescription" placeholder="Owner's Description"
+                class="form-control" required>
+        </div>
 
-</form>
+        <br>
+        <button type="submit" class="btn btn-primary" [disabled]="!quoteData.valid">Submit</button>
+
+    </form>
+
+</div>
+
+
+<!-- table to display the quotes -->
+<!-- <div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Quote Owner</th>
+                <th>Quote Message</th>
+                <th>Owner Description</th>
+            </tr>         
+    
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div> -->
