@@ -25,6 +25,15 @@ export class QuotesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.qs.getQuotes().subscribe(
+      (res)=>{
+        this.quoteInfo=res
+      },
+      (err)=>{
+        console.log(err)
+      }
+    )
   }
   saveQuote(){
     // console.log(this.quoteData)
@@ -34,8 +43,7 @@ export class QuotesComponent implements OnInit {
         this.quoteInfo.push(res)
         this.quoteSuccess=true;
         this.quoteData.reset();  
-        this.message = "Quote added successfully";  
-          
+        this.message = "Quote added successfully";            
      
       },
       (err) => {

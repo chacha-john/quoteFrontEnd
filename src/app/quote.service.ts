@@ -19,4 +19,7 @@ export class QuoteService {
   delete(data: any): Observable<any> {
     return this.httpClient.delete(Constants.API_ENDPOINT + "delete", data);
   }
+  getQuotes():Observable<any>{
+    return this.httpClient.get(Constants.API_ENDPOINT + "listall");
+  }
 }
