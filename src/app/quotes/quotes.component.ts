@@ -30,6 +30,7 @@ export class QuotesComponent implements OnInit {
       (res) => {
         console.log(res)
         this.quoteInfo.push(res)
+        this.quoteData.reset()
         // console.log(this.quoteData.value)
      
       },

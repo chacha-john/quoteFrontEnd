@@ -7,11 +7,13 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuoteService } from './quote.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalsComponent } from './modals/modals.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuotesComponent
+    QuotesComponent,
+    ModalsComponent
   ],
   imports: [
     BrowserModule,
