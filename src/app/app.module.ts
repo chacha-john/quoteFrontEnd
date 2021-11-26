@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuoteService } from './quote.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalsComponent } from './modals/modals.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -15,7 +17,9 @@ import { ModalsComponent } from './modals/modals.component';
   declarations: [
     AppComponent,
     QuotesComponent,
-    ModalsComponent
+    ModalsComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

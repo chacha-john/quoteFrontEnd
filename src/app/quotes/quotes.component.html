@@ -22,8 +22,7 @@
 
 
     <button type="button" class="btn btn-primary" data-target="#quoteModal" data-toggle="modal"> <i
-            class="fa fa-plus">&nbsp;</i>Add Quote
-        Info</button>
+            class="fa fa-plus">&nbsp;</i>Add Quote Info</button>
 
 
     <!-- Quote info modal -->
@@ -31,12 +30,10 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="#quoteModal">Quote Information</h4>
+                    <h4 class="modal-title" id="#quoteModal">New Quote</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span class="w3-button" aria-hidden="true">&times;</span>
                     </button>
-
-
                 </div>
                 <div class="alert" [ngClass]="{'alert-success':quoteSuccess}" *ngIf="quoteSuccess"[@fadeIn]>
                     {{message}}
@@ -45,14 +42,14 @@
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label for="">Owner</label>
-                            <input type="text" formControlName="quoteOwner" placeholder="Owner's Name"
+                            <label for="">Message</label>
+                            <input type="text" formControlName="quoteMessage" placeholder="Quote Message"
                                 class="form-control" required>
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="">Message</label>
-                            <input type="text" formControlName="quoteMessage" placeholder="Quote Message"
+                            <label for="">Owner</label>
+                            <input type="text" formControlName="quoteOwner" placeholder="Owner's Name"
                                 class="form-control" required>
                         </div>
                         <br>
