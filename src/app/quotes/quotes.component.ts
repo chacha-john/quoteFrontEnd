@@ -10,6 +10,8 @@ import { QuoteService } from '../quote.service';
 export class QuotesComponent implements OnInit {
   quoteInfo: any = [];
   quoteData: any
+  message = ''
+  quoteSuccess = false;
   constructor(
     private fb: FormBuilder,
     private qs: QuoteService,
@@ -23,6 +25,15 @@ export class QuotesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.qs.getQuotes().subscribe(
+      (res)=>{
+        this.quoteInfo=res
+      },
+      (err)=>{
+        console.log(err)
+      }
+    )
   }
   saveQuote(){
     // console.log(this.quoteData)
@@ -30,8 +41,9 @@ export class QuotesComponent implements OnInit {
       (res) => {
         console.log(res)
         this.quoteInfo.push(res)
-        this.quoteData.reset()
-        // console.log(this.quoteData.value)
+        this.quoteSuccess=true;
+        this.quoteData.reset();  
+        this.message = "Quote added successfully";            
      
       },
       (err) => {
@@ -39,5 +51,6 @@ export class QuotesComponent implements OnInit {
       }
     )
   }
+  
 
 }

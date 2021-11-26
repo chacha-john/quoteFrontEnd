@@ -1,8 +1,107 @@
-<form class="quotes" [formGroup]="quoteData"(ngSubmit)="saveQuote()">
-    <input type="text" formControlName="quoteOwner" placeholder="Owner's Name">
-    <input type="textarea" formControlName="quoteMessage" placeholder="Quote Message">
-    <input type="text" formControlName="quoteOwnerDescription" placeholder="Owner's Description">
-    
-    <button type="submit">Submit</button>
+<div class="container" mt-3>
+    <!-- <table class="table mt-3">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Quote Owner</th>
+                <th scope="col">Quote Message</th>
+                <th scope="col">Owner Description</th>
+            </tr>
 
-</form>
+        </thead>
+        <tbody>
+            <tr *ngFor="let quote of quoteInfo">
+                <td>{{quote.quoteId}}</td>
+                <td>{{quote.quoteOwner}}</td>
+                <td>{{quote.quoteMessage}}</td>
+                <td>{{quote.quoteOwnerDescription}}</td>
+            </tr>
+
+        </tbody>
+    </table> -->
+
+
+    <button type="button" class="btn btn-primary" data-target="#quoteModal" data-toggle="modal"> <i
+            class="fa fa-plus">&nbsp;</i>Add Quote
+        Info</button>
+
+
+    <!-- Quote info modal -->
+    <div class="modal" id="quoteModal" tabindex="-1" role="dialog" aria-labelledby="quoteModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="#quoteModal">Quote Information</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+
+                </div>
+                <div class="alert" [ngClass]="{'alert-success':quoteSuccess}" *ngIf="quoteSuccess"[@fadeIn]>
+                    {{message}}
+                </div>
+                <form [formGroup]="quoteData" (ngSubmit)="saveQuote()">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="">Owner</label>
+                            <input type="text" formControlName="quoteOwner" placeholder="Owner's Name"
+                                class="form-control" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="">Message</label>
+                            <input type="text" formControlName="quoteMessage" placeholder="Quote Message"
+                                class="form-control" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="">Description</label>
+                            <input type="text" formControlName="quoteOwnerDescription" placeholder="Owner's Description"
+                                class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!quoteData.valid">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- <br>
+<br>
+
+<button type="button" data-toggle="modal" data-target="#quoteModal"
+    class="btn btn-success btn-sm rounded-0 float-right mb-3"> View Quotes</button> -->
+
+<!-- table to display the quotes -->
+<!-- <div>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Quote Owner</th>
+                <th scope="col">Quote Message</th>
+                <th scope="col">Owner Description</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr *ngFor="let quote of quoteInfo">
+                <td>{{quote.quoteId}}</td>
+                <td>{{quote.quoteOwner}}</td>
+                <td>{{quote.quoteMessage}}</td>
+                <td>{{quote.quoteOwnerDescription}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div> -->

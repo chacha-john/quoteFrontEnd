@@ -9,6 +9,8 @@ import { QuoteService } from './quote.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalsComponent } from './modals/modals.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +23,7 @@ import { ModalsComponent } from './modals/modals.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
+    
   ],
   providers: [
     QuoteService
