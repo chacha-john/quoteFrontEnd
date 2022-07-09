@@ -1,0 +1,7 @@
+<form [formGroup]="quoteData"(ngSubmit)="saveQuote()">
+    <input type="text" formControlName="quoteOwner" placeholder="Owner's Name">
+    <input type="text" formControlName="quoteMessage" placeholder="Quote Message">
+    <input type="text" formControlName="quoteOwnerDescription" placeholder="Owner's Description">
+    <button type="submit">Submit</button>
+
+</form>
